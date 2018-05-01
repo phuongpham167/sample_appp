@@ -1,0 +1,12 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "sample app", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to  (I18n.t "nav_home_tit"),   root_path %></li>
+        <li><%= link_to (I18n.t "nav_help_tit"),   help_path %></li>
+        <li><%= link_to (I18n.t "nav_login_tit"), "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
