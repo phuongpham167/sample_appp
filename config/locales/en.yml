@@ -1,7 +1,40 @@
 en:
-  controllers:
-    sessions:
-        invalid: "Invalid email/password combination"
+  users:
+    logged_in_user:
+        plslogin: "Please log in"
+    update:
+      prupdate: "Profile updated"
+    destroy:
+      userdel: "User deleted"
+      failed: "Users ID not found"
+    verify_admin?:
+      warning: "Admin only"
+    new:
+      new: "Sign up"
+      confirm: "Confirmation"
+      create: "Create my account"
+    _user:
+      delete: "delete"
+      confirm: "You sure?"
+    edit:
+      edituser: "Edit user"
+      save_change: "Save changes"
+      change: "change"
+      h1: "Update your profile"
+      confirmation: "Confirmation"
+      change_avatar: "http://gravatar.com/emails"
+    index:
+      all_users: "All users"
+  sessions:
+    create:
+      invalid: "Invalid email/password combination"
+      message: "Account not activated. Check your email for the activation link."
+    new:
+      newuser: "New user?"
+      remember: "Remember me on this computer"
+  account_activations:
+    activated: "Account activated!"
+    invalid: "Invalid activation link"
   helpers:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
@@ -14,6 +47,9 @@ en:
       new: "News"
       ror: "Ruby on Rails"
       the: "The"
+      contact_link: "http://news.railstutorial.org/"
+      ror_link: "http://www.railstutorial.org/"
+      author_link: "http://www.michaelhartl.com/"
     _header:
       nameapp: "Sample App"
       home: "Home"
@@ -22,6 +58,8 @@ en:
       account: "Account"
       logout: "Logout"
       users: "Users"
+      profile: "Profile"
+      setting: "Settings"
   shared:
     _error_messages:
       mess: "The form contains"
@@ -51,12 +89,22 @@ en:
       h2: "This is the home page for the"
       h2_1: "sample application."
       signup: "Sign up now!"
-  users:
-    new:
-      new: "Sign up"
-      confirm: "Confirmation"
-      create: "Create my account"
-  sessions:
-    new:
-      newuser: "New user?"
-      remember: "Remember me on this computer"
+  user_mailer:
+    p: "Welcome to the Sample App! Click on the link below to activate your account:"
+    activate: "Activate"
+    h1: "User#password_reset"
+    p: ", find me in app/views/user_mailer/password_reset.html.erb"
+    account_activation:
+      subject: "Account activation"
+      sample: "Sample App"
+      hi: "Hi"
+      account: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate: "Activate"
+    password_reset:
+      title: "Password reset"
+      click: "To reset your password click the link below:"
+      link_to: "Reset password"
+      link: "This link will expire in two hours."
+      note: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+

@@ -1,13 +1,13 @@
 <footer class="footer">
   <small>
-    <%= t ".the" %><a href="http://www.railstutorial.org/"> <%= t "layouts._footer.ror" %></a>
-    <%= t ".by" %><a href="http://www.michaelhartl.com/"> <%= t "layouts._footer.author" %></a>
+    <%= t ".the" %> <%= link_to t("layouts._footer.ror"), t("layouts._footer.ror_link")%>
+    <%= t ".by" %> <%= link_to t("layouts._footer.author"), t("layouts._footer.author_link")%>
   </small>
   <nav>
     <ul>
       <li><%= link_to t(".about"), about_path %></li>
       <li><%= link_to t(".contact"), contact_path %></li>
-      <li><a href="http://news.railstutorial.org/"><%= t ".new" %></a></li>
+      <li><%= link_to t(".new"), t("layouts._footer.contact_link") %></li>
     </ul>
   </nav>
 </footer>
