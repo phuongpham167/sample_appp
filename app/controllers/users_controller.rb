@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by id:params[:id]
+    @user = User.find_by id: params[:id]
     return if @user
     flash[:success] = t "static_pages.help.usernotfound"
     redirect_to :help
