@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name:  "Relationship",
+    foreign_key: "follower_id", dependent:   :destroy
+  has_many :passive_relationships, class_name:  "Relationship",
+    foreign_key: "followed_id", dependent:   :destroy
+  has_many :following, through: :active_relationships,  source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -35,29 +41,9 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password? token
   end
 
-  def current_user
-    if user_id = session[:user_id]
-      @current_user ||= User.find_by id: user_id
-    elsif user_id = cookies.signed[:user_id]
-      user = User.find_by id: user_id
-      if user && user.authenticated?(:remember, cookies[:remember_token])
-        log_in user
-        @current_user = user
-      end
-    end
-  end
 
   def forget
     update_attribute :remember_digest, User.digest(remember_token)
-  end
-
-  def authenticated? remember_token
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
-  end
-
-  def forget
-    update_attribute :remember_digest, nil
   end
 
   def activate
@@ -69,26 +55,40 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute :reset_digest, User.digest(reset_token)
+    update_attribute :reset_sent_at, Time.zone.now
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < (Settings.model.user.time).hours.ago
+  end
+
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+      WHERE  follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids})
+      OR user_id = :user_id", user_id: id)
+  end
+
+  def follow other_user
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow other_user
+    following.delete(other_user)
+  end
+
+  def following? other_user
+    following.include?(other_user)
+  end
+
   private
-
-    def create_reset_digest
-      self.reset_token = User.new_token
-      update_attribute :reset_digest, User.digest(reset_token)
-      update_attribute :reset_sent_at, Time.zone.now
-    end
-
-    def send_password_reset_email
-      UserMailer.password_reset(self).deliver_now
-    end
-
-    def password_reset_expired?
-      reset_sent_at < (Settings.model.user.time).hours.ago
-    end
-
-    def feed
-      Micropost.where("user_id =  ?", id)
-    end
-    private
 
     def downcase_email
       self.email = email.downcase
