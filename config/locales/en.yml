@@ -1,7 +1,9 @@
 en:
+  application:
+    pls_login: "Please log in"
   users:
     logged_in_user:
-        plslogin: "Please log in"
+        pls_login: "Please log in"
     update:
       prupdate: "Profile updated"
     destroy:
@@ -17,7 +19,7 @@ en:
       delete: "delete"
       confirm: "You sure?"
     edit:
-      edituser: "Edit user"
+      edit_user: "Edit user"
       save_change: "Save changes"
       change: "change"
       h1: "Update your profile"
@@ -25,6 +27,42 @@ en:
       change_avatar: "http://gravatar.com/emails"
     index:
       all_users: "All users"
+  microposts:
+    create:
+      flash_sucess_create: "Micropost created!"
+    destroy:
+      flash_sucess_destroy: "Micropost deleted"
+      flash_danger_destroy: "Have a problem"
+    picture_size:
+      mount: "PictureUplpaders"
+      danger_lenght: "should be less than 5MB"
+    _micropost:
+      span: "Posted"
+      delete: "delete"
+      confirm: "You sure?"
+  password_resets:
+    create:
+      flash_info: "Email sent with password reset instructions"
+      flash_danger: "Email address not found"
+    update:
+      cant_empty: "Can not empty"
+      flash_sucess: "Password has been reset."
+    check_expiration:
+      flash_danger: "Password reset has expired."
+    edit:
+      title: "Password reset"
+      click: "To reset your password click the link below:"
+      link_to: "Reset password"
+      link: "This link will expire in two hours."
+      note: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+      submit: "Update password"
+      confirm: "Confirmation"
+    new:
+      title: "Forgot password"
+      submit: "Submit"
+    get_user:
+      flash_danger: "User not found"
   sessions:
     create:
       invalid: "Invalid email/password combination"
@@ -63,6 +101,12 @@ en:
   shared:
     _error_messages:
       mess: "The form contains"
+    _user_info:
+      view_profile: "view my profile"
+      micropost: "micropost"
+    _micropost_form:
+      placeholder: "Compose new micropost..."
+      post: "Post"
   static_pages:
     about:
       h1: "About"
@@ -88,7 +132,9 @@ en:
       h1: "Welcome to the Sample App"
       h2: "This is the home page for the"
       h2_1: "sample application."
+      h3: "Micropost Feed"
       signup: "Sign up now!"
+      rails_logo: "Rails logo"
   user_mailer:
     p: "Welcome to the Sample App! Click on the link below to activate your account:"
     activate: "Activate"
@@ -102,9 +148,12 @@ en:
       activate: "Activate"
     password_reset:
       title: "Password reset"
-      click: "To reset your password click the link below:"
       link_to: "Reset password"
-      link: "This link will expire in two hours."
-      note: "If you did not request your password to be reset,
-        please ignore this email and your password will stay as it is."
+      submit: "Update password"
+      confirm: "Confirmation"
+      p: ", find me in app/views/user_mailer/password_reset.html.erb"
+      p1: "To reset your password click the link below:"
+      p2: "This link will expire in two hours."
+      p3: "If you did not request your password to be reset, please ignore this email and
+        your password will stay as it is."
 

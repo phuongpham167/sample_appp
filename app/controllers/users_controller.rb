@@ -4,32 +4,33 @@ class UsersController < ApplicationController
   before_action :verify_admin?, only: :destroy
   before_action :load_user, only: %i(show edit update destroy)
 
+  def create
+    @user = User.new user_params
+    if @user.save
+      log_in @user
+      flash[:success] = t "static_pages.home.h1"
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+
+  def show
+    @microposts = @user.microposts.paginate(page: params[:page]).order(:created_at)
+  end
+
   def index
-    @users = User.index_user.page(params[:page])
-      .per Settings.user.per_page
+    @users = User.paginate(page: params[:page]).order(:created_at)
   end
 
   def new
     @user = User.new
   end
 
-  def create
-    @user = User.new user_params
-    if @user.save
-      flash[:success] = t "static_pages.home.h1"
-      redirect_to root_url
-    else
-      render :new
-    end
-  end
-
-
-  def show; end
-
   def edit; end
 
   def update
-    if @user.update_attributes user_params
+    if @user.update_attributes(user_params)
       flash[:success] = t ".prupdate"
       redirect_to @user
     else
@@ -49,11 +50,6 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit :name, :email, :password,
-        :password_confirmation
-    end
-
     def logged_in_user
       return if logged_in?
       store_location
@@ -71,4 +67,10 @@ class UsersController < ApplicationController
       flash[:danger] = t "static_pages.help.usernotfound"
       redirect_to :help
     end
+
+    def user_params
+      params.require(:user).permit :name, :email, :password,
+        :password_confirmation
+    end
+
 end

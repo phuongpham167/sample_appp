@@ -15,3 +15,9 @@ views:
       size: 50
 sessions:
   remember: "1"
+micropost:
+  size_user: 50
+  picture_size: 5
+model:
+  user:
+    time: 2
