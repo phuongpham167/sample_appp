@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    application:
+      base_title: "Ruby on Rails Tutorial Sample App"
+  views:
+    layouts:
+      application:
+        base_title: "| Ruby on Rails Tutorial Sample App"
+
