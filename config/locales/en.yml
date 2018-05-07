@@ -1,21 +1,54 @@
 en:
-  nav_home_tit: "Home"
-  nav_help_tit: "Help"
-  nav_about_tit: "About"
-  nav_contact_tit: "Contact"
-  nav_news_tit: "News"
-  nav_login_tit: "Log in"
-  nav_singup_tit: "Sign up now!"
-  hello: "Hello world"
   helpers:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
-  views:
-    tit1: "The"
-    tit2: "Ruby on Rails"
-    static_pages:
-      home:
-        home_tit: "Welcome to the Sample App"
-      contact:
-        contact_tit: "Contact"
+  layouts:
+    _footer:
+      about: "About"
+      author: "Michael Hartl"
+      contact: "Contact"
+      by: "by"
+      new: "News"
+      ror: "Ruby on Rails"
+      the: "The"
+    _header:
+      nameapp: "Sample App"
+      home: "Home"
+      help: "Help"
+      login: "Login"
+  shared:
+    _error_messages:
+      mess: "The form contains"
+  static_pages:
+    about:
+      h1: "About"
+      the: "The"
+      ror: "Ruby on Rails Tutorial"
+      is: "is a"
+      book: "book"
+      and: "and"
+      screencasts: "screencast series"
+      screencasts_1: "to teach web development with"
+      p: "This is the sample application for the tutorial."
+    contact:
+      h1: "Contact"
+      p: "Contact the Ruby on Rails Tutorial about the sample app at the"
+      contact: "contact page"
+    help:
+      h1: "Help"
+      p: "Get help on the Ruby on Rails Tutorial at the"
+      help: "Rails Tutorial help page"
+      a: "To get help on this sample app, see the"
+      usernotfound: "Users ID not found"
+    home:
+      h1: "Welcome to the Sample App"
+      h2: "This is the home page for the"
+      h2_1: "sample application."
+      signup: "Sign up now!"
+  users:
+    new:
+      new: "Sign up"
+      confirm: "Confirmation"
+      create: "Create my account"
+
 

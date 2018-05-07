@@ -1,13 +1,13 @@
 <footer class="footer">
   <small>
-    <%= I18n.t "views.tit1"%> <a href="http://www.railstutorial.org/"><%= I18n.t "views.tit2"%></a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+    <%= t ".the" %><a href="http://www.railstutorial.org/"><%= t "layouts._footer.ror" %></a>
+    <%= t ".by" %><a href="http://www.michaelhartl.com/"><%= t "layouts._footer.author" %></a>
   </small>
   <nav>
     <ul>
-      <li><%= link_to (I18n.t "nav_about_tit"),   about_path %></li>
-      <li><%= link_to (I18n.t "nav_contact_tit"), contact_path %></li>
-      <li><a href="http://news.railstutorial.org/"><%= I18n.t "nav_news_tit"%></a></li>
+      <li><%= link_to t(".about"), about_path %></li>
+      <li><%= link_to t(".contact"), contact_path %></li>
+      <li><a href="http://news.railstutorial.org/"><%= t ".new" %></a></li>
     </ul>
   </nav>
 </footer>

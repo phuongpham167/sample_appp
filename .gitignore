@@ -24,3 +24,8 @@
 
 #ignore all file test
 /test/*
+
+#ignore all file rubocop
+.rubocop.yml
+.rubocop_disabled.yml
+.rubocop_enabled.yml
