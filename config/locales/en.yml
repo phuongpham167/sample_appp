@@ -1,4 +1,7 @@
 en:
+  controllers:
+    sessions:
+        invalid: "Invalid email/password combination"
   helpers:
     application:
       base_title: "Ruby on Rails Tutorial Sample App"
@@ -16,6 +19,9 @@ en:
       home: "Home"
       help: "Help"
       login: "Login"
+      account: "Account"
+      logout: "Logout"
+      users: "Users"
   shared:
     _error_messages:
       mess: "The form contains"
@@ -50,5 +56,7 @@ en:
       new: "Sign up"
       confirm: "Confirmation"
       create: "Create my account"
-
-
+  sessions:
+    new:
+      newuser: "New user?"
+      remember: "Remember me on this computer"
