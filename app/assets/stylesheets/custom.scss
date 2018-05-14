@@ -1,9 +1,6 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-/* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'define_color';
 
 /* universal */
 
@@ -40,19 +37,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
   color: $gray-light;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  text-align: center;
 }
 
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -99,12 +95,10 @@ footer {
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
-
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* miscellaneous */
@@ -114,9 +108,7 @@ $gray-medium-light: #eaeaea;
   float: left;
   margin-top: 45px;
   width: 100%;
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  @include box_sizing;
 }
 
 /* sidebar */
@@ -159,7 +151,7 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 1px solid $input_color;
   margin-bottom: 15px;
   width: 100%;
   @include box_sizing;
@@ -207,5 +199,55 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid $list_micropost;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+      size: cover;
+      max-width: 700px;
+      max-height: 300px;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
