@@ -180,14 +180,14 @@ input {
   margin-top: -10px;
   margin-bottom: 10px;
   span {
-    margin-left: 20px;
     font-weight: normal;
+    margin-left: 20px;
   }
 }
 
 #session_remember_me {
-  width: auto;
   margin-left: 0;
+  width: auto;
 }
 
 /* Users index */
@@ -199,5 +199,55 @@ input {
     border-bottom: 1px solid $gray-lighter;
     padding: 10px 0;
     overflow: auto;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    border-top: 1px solid $list_micropost;
+    padding: 10px 0;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      max-width: 700px;
+      max-height: 300px;
+      padding: 5px 0;
+      size: cover;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
