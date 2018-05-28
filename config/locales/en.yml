@@ -27,6 +27,12 @@ en:
       change_avatar: "http://gravatar.com/emails"
     index:
       all_users: "All users"
+    _follow:
+      follow: "Follow"
+    _unfollow:
+      unfollow: "Unfollow"
+    show_follow:
+      view: "view my profile"
   microposts:
     create:
       flash_sucess_create: "Micropost created!"
